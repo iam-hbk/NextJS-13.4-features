@@ -24,8 +24,10 @@ module.exports = {
     themes: [
       {
         mytheme: {
+
           primary: "#d33d6f",
           secondary: "#eac14f",
+          tertiary:"#3c5979",
           accent: "#ac99e8",
           neutral: "#1d242b",
           "base-100": "#f7f6f8",
@@ -34,7 +36,7 @@ module.exports = {
           warning: "#eabb39",
           error: "#e54b48",
           body: {
-            "background-color": "#3c5979",
+            // "background-color": "#3c5979",
             "padding-top": "1rem",
           },
         },
