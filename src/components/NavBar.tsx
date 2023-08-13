@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { platform } from "os";
 import React from "react";
 type NavBarProps = {};
 
@@ -11,7 +12,7 @@ export default function NavBar({}: NavBarProps) {
   return (
     <div className="glass navbar sticky top-4 z-50 m-4 w-auto rounded-xl  bg-primary text-primary-content backdrop-blur-md">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown ">
           <label
             tabIndex={0}
             className="btn btn-circle btn-ghost swap swap-rotate lg:hidden"
@@ -33,9 +34,9 @@ export default function NavBar({}: NavBarProps) {
           </label>
           <ul
             tabIndex={0}
-            className="menu dropdown-content rounded-box glass menu-sm z-[1] mt-3 w-52 bg-primary p-2 shadow"
+            className="menu  dropdown-content rounded-box glass menu-sm z-[1] mt-3 w-52 bg-primary p-2 shadow"
           >
-            <li>
+            <li >
               <Link
                 href={"/static"}
                 className={`${pathname === "/static" ? "active" : ""}`}
@@ -62,12 +63,12 @@ export default function NavBar({}: NavBarProps) {
                     Dynamic
                   </Link>
                 </li>
-                <li>
+                <li >
                   <Link
                     href={"/isr"}
-                    className={`${pathname === "/isr" ? "active" : ""}`}
+                    className={`${pathname === "/isr" ? "active" : ""} `}
                   >
-                    Incremental Static Regeneration
+                    Incremental Static  <br /> Regeneration
                   </Link>
                 </li>
               </ul>

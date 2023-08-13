@@ -1,9 +1,9 @@
 import { UnsplashImage } from "@/models/unsplash-image";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BsInfoCircleFill } from "react-icons/bs";
-
 interface TopicPageProps {
   params: { topic: string };
   //object of {key:value} or array of string or undefined
@@ -20,11 +20,14 @@ export function generateStaticParams() {
   return ["food", "coding", "Christ"].map((topic) => ({ topic }));
 }
 
-export function generateMetadata({ params: { topic } }: TopicPageProps):Metadata {
-return {
-    title: `${topic} - NextJS 13.4 Image Gallery`
+export function generateMetadata({
+  params: { topic },
+}: TopicPageProps): Metadata {
+  return {
+    title: `${topic} - NextJS 13.4 Image Gallery`,
+  };
 }
-}
+
 
 export default async function TopicPage({ params: { topic } }: TopicPageProps) {
   const reponse = await fetch(
@@ -48,16 +51,24 @@ export default async function TopicPage({ params: { topic } }: TopicPageProps) {
         </p>
       </div>
       <h1 className="m-2 mb-4 text-2xl font-bold capitalize">{`Results for " ${topic}"`}</h1>
-      <div className="flex flex-row flex-wrap gap-5">
+      <div className="flex flex-row flex-wrap items-baseline justify-center gap-5">
         {images.map((image) => (
-          <Image
-            src={image.urls.raw}
-            width={250}
-            height={250}
-            alt={image.description}
-            key={image.urls.raw}
-            className="m-1 rounded-md object-cover"
-          />
+          <div key={image.urls.raw}>
+            <Image
+              src={image.urls.raw}
+              width={250}
+              height={250}
+              alt={image.description}
+              className="m-1 rounded-md object-cover"
+            />
+            by{" "}
+            <Link
+              href={`/users/${image.user.username}`}
+              className="link-primary link"
+            >
+              {image.user.username}
+            </Link>
+          </div>
         ))}
       </div>
     </div>
