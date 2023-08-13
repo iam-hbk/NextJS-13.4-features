@@ -4,22 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsInfoCircleFill } from "react-icons/bs";
 export const metadata: Metadata = {
-  title: "Dynamic Fetching - NextJS 13.4 Image Gallery",
+  title: "Incremental Static Regeneration - NextJS 13.4 Image Gallery",
 };
 
 //makes it dynamic
-export const revalidate = 0;
+export const revalidate = 15;
 
 export default async function DynamicPage() {
   const response = await fetch(
     `https://api.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_ACCESS_KEY}`,
     {
-      // cache:"no-cache"/"no-store"
-      // next:{revalidate:0}
+      // next:{revalidate:15}
     },
   );
   const image: UnsplashImage = await response.json();
-  console.log(image)
 
   const width = Math.min(500, image.width);
   const height = (width / image.width) * image.height;
@@ -29,8 +27,9 @@ export default async function DynamicPage() {
       <div className=" my-5 flex flex-row items-center rounded-lg bg-info p-4">
         <BsInfoCircleFill size={65} />
         <p className="ml-5">
-          This page <strong>fetches data dynamically</strong>. Every time you
-          refresh the page, you get a new image from the Unsplah API.
+          This page uses <strong>Incremental Static Regeneration (ISR)</strong>.
+          A new image is fecthed every 15 seconds (after refreshing the page)
+          and then served from the cache for that duration. The time can be customized.
         </p>
       </div>
       <Image

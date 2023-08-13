@@ -9,10 +9,13 @@ export default function NavBar({}: NavBarProps) {
   const pathname = usePathname();
 
   return (
-    <div className="glass navbar sticky top-4 z-50 m-4 w-auto rounded-xl  text-primary-content backdrop-blur-md bg-primary">
+    <div className="glass navbar sticky top-4 z-50 m-4 w-auto rounded-xl  bg-primary text-primary-content backdrop-blur-md">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden btn-circle swap swap-rotate">
+          <label
+            tabIndex={0}
+            className="btn btn-circle btn-ghost swap swap-rotate lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -41,13 +44,31 @@ export default function NavBar({}: NavBarProps) {
               </Link>
             </li>
             <li>
-              <a className="hover:text-stone-100 ">Parent</a>
-              <ul >
+              <a className="hover:text-stone-100 ">Server Side Rendering</a>
+              <ul>
                 <li>
-                  <a>Submenu 1</a>
+                  <Link
+                    href={"/static"}
+                    className={`${pathname === "/static" ? "active" : ""}`}
+                  >
+                    Static
+                  </Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <Link
+                    href={"/dynamic"}
+                    className={`${pathname === "/dynamic" ? "active" : ""}`}
+                  >
+                    Dynamic
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/isr"}
+                    className={`${pathname === "/isr" ? "active" : ""}`}
+                  >
+                    Incremental Static Regeneration
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -77,13 +98,31 @@ export default function NavBar({}: NavBarProps) {
           </li>
           <li tabIndex={0}>
             <details>
-              <summary>Parent</summary>
+              <summary>Server Side Rendering</summary>
               <ul className="glass bg-primary p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link
+                    href={"/static"}
+                    className={`${pathname === "/static" ? "active" : ""}`}
+                  >
+                    Static
+                  </Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <Link
+                    href={"/dynamic"}
+                    className={`${pathname === "/dynamic" ? "active" : ""}`}
+                  >
+                    Dynamic
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/isr"}
+                    className={`${pathname === "/isr" ? "active" : ""}`}
+                  >
+                    Incremental Static Regeneration
+                  </Link>
                 </li>
               </ul>
             </details>
