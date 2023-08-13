@@ -3,12 +3,18 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BsInfoCircleFill } from "react-icons/bs";
+import wretch from "wretch";
+
 export const metadata: Metadata = {
   title: "Dynamic Fetching - NextJS 13.4 Image Gallery",
 };
 
 //makes it dynamic
 export const revalidate = 0;
+
+const api = wretch("https://api.unsplash.com")
+  .errorType("json")
+  .resolve((r) => r.json());
 
 export default async function DynamicPage() {
   const response = await fetch(
@@ -18,7 +24,12 @@ export default async function DynamicPage() {
       // next:{revalidate:0}
     },
   );
+
+  // const r = await api.get(`/photos/random?client_id=${process.env.UNSPLASH_ACCESS_KEY}`,)
+
+  // return <div>Res:{JSON.stringify(r)}</div>;
   const image: UnsplashImage = await response.json();
+
 
   const width = Math.min(500, image.width);
   const height = (width / image.width) * image.height;
@@ -37,7 +48,7 @@ export default async function DynamicPage() {
         width={width}
         height={height}
         alt={image.description}
-        className="mw-100  h-100 rounded-md shadow-sm "
+        className="min-w-[100px]  h-full rounded-md shadow-sm "
       />{" "}
       by{" "}
       <Link

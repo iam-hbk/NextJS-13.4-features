@@ -35,7 +35,7 @@ export default function RootLayout({
           </div>
         </div> */}
         <NavBar />
-        <main >{children}</main>
+        <main className="px-4" >{children}</main>
         <footer className="bg-base-200 p-8 flex items-center">Footer</footer>
       </body>
     </html>
