@@ -48,7 +48,7 @@ export default async function DynamicPage() {
         width={width}
         height={height}
         alt={image.description}
-        className="mw-100  h-100 rounded-md shadow-sm "
+        className="min-w-[100px]  h-full rounded-md shadow-sm "
       />{" "}
       by{" "}
       <Link

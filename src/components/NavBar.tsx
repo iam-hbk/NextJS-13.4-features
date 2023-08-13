@@ -73,6 +73,39 @@ export default function NavBar({}: NavBarProps) {
               </ul>
             </li>
             <li>
+              <a className="hover:text-stone-100 ">Topics</a>
+              <ul>
+                <li>
+                  <Link
+                    href={"/topics/food"}
+                    className={`${
+                      pathname === "/topics/food" ? "active" : ""
+                    }`}
+                  >
+                    Food
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/topics/coding"}
+                    className={`${
+                      pathname === "/topics/coding" ? "active" : ""
+                    }`}
+                  >
+                    Coding
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/topics/Christ"}
+                    className={`${pathname === "/Christ" ? "active" : ""}`}
+                  >
+                    Christ
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li>
               <Link
                 href={"/dynamic"}
                 className={`${pathname === "/dynamic" ? "active" : ""}`}
@@ -122,6 +155,43 @@ export default function NavBar({}: NavBarProps) {
                     className={`${pathname === "/isr" ? "active" : ""}`}
                   >
                     Incremental Static Regeneration
+                  </Link>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li tabIndex={1}>
+            <details>
+              <summary>Topics</summary>
+              <ul className="glass bg-primary p-2">
+                <li>
+                  <Link
+                    href={"/topics/food"}
+                    className={`${
+                      pathname === "/topics/food" ? "active" : ""
+                    }`}
+                  >
+                    Food
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/topics/coding"}
+                    className={`${
+                      pathname === "/topics/coding" ? "active" : ""
+                    }`}
+                  >
+                    Coding
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/topics/Christ"}
+                    className={`${
+                      pathname === "/topics/Christ" ? "active" : ""
+                    }`}
+                  >
+                    Christ
                   </Link>
                 </li>
               </ul>
