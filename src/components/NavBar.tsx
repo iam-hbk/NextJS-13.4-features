@@ -53,10 +53,10 @@ export default function NavBar({}: NavBarProps) {
             </li>
             <li>
               <Link
-                href={"/ssr"}
-                className={`${pathname === "/ssr" ? "active" : ""}`}
+                href={"/dynamic"}
+                className={`${pathname === "/dynamic" ? "active" : ""}`}
               >
-                SSR
+                Dynamic
               </Link>
             </li>
           </ul>
@@ -90,10 +90,10 @@ export default function NavBar({}: NavBarProps) {
           </li>
           <li>
             <Link
-              href={"/ssr"}
-              className={`${pathname === "/ssr" ? "active" : ""}`}
+              href={"/dynamic"}
+              className={`${pathname === "/dynamic" ? "active" : ""}`}
             >
-              SSR
+              Dynamic
             </Link>
           </li>
         </ul>
